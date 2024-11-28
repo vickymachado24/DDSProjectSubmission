@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Electronic Banking App{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h1>Dashboard</h1>
+    <div class="accounts-section">
+        <h2>Accounts</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Account Number</th>
+                    <th>Account Type</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for account in accounts %}
+                <tr>
+                    <td>{{ account.account_number }}</td>
+                    <td>{{ account.account_type }}</td>
+                    <td>{{ account.balance }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="loans-section">
+        <h2>Loans</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Loan Type</th>
+                    <th>Amount</th>
+                    <th>Interest Rate</th>
+                    <th>Term</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for loan in loans %}
+                <tr>
+                    <td>{{ loan.loan_type }}</td>
+                    <td>{{ loan.amount }}</td>
+                    <td>{{ loan.interest_rate }}</td>
+                    <td>{{ loan.term }}</td>
+                    <td>{{ loan.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

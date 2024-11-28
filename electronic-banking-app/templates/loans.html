@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Loans - Electronic Banking App{% endblock %}
+
+{% block content %}
+<div class="loans-container">
+    <h1>Loans</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Loan Type</th>
+                <th>Amount</th>
+                <th>Interest Rate</th>
+                <th>Term</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for loan in loans %}
+            <tr>
+                <td>{{ loan.loan_type }}</td>
+                <td>{{ loan.amount }}</td>
+                <td>{{ loan.interest_rate }}</td>
+                <td>{{ loan.term }}</td>
+                <td>{{ loan.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
