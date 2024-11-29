@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="POST">
+        <input type="text" name="loan_type" placeholder="Loan Type" required>
+        <input type="number" name="requested_amount" placeholder="Requested Amount" required>
+        <input type="date" name="application_date" required>
+        <button type="submit">Submit Application</button>
+    </form>
+{% endblock %}

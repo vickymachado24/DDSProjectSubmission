@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Your Loans</h2>
+    <ul>
+        {% for loan in loans %}
+            <li>Loan Type: {{ loan.loan_type }} | Amount: {{ loan.amount }} | Status: {{ loan.status }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
