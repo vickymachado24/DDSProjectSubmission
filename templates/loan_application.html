@@ -1,10 +1,33 @@
-{% extends 'base.html' %}
+
+{% extends "home.html" %}
+
+{% block title %}Loan Application - Banking App{% endblock %}
 
 {% block content %}
-    <form method="POST">
-        <input type="text" name="loan_type" placeholder="Loan Type" required>
-        <input type="number" name="requested_amount" placeholder="Requested Amount" required>
-        <input type="date" name="application_date" required>
-        <button type="submit">Submit Application</button>
-    </form>
+<h1>Loan Application</h1>
+<form id="loan-form" class="loan-application-form">
+    <div class="form-group">
+        <label for="loan-amount">Loan Amount</label>
+        <input type="text" id="loan-amount" name="loan-amount" required>
+    </div>
+    <div class="form-group">
+        <label for="loan-purpose">Loan Purpose</label>
+        <select id="loan-purpose" name="loan-purpose" required>
+            <option value="">Select a purpose</option>
+            <option value="home">Home Loan</option>
+            <option value="car">Car Loan</option>
+            <option value="personal">Personal Loan</option>
+            <option value="business">Business Loan</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="loan-term">Loan Term (years)</label>
+        <input type="text" id="loan-term" name="loan-term" required>
+    </div>
+    <button type="submit" class="submit-btn">Apply for Loan</button>
+</form>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/loan_application.js') }}"></script>
 {% endblock %}
