@@ -1,25 +1,20 @@
-{% extends 'base.html' %}
+
+{% extends "home.html" %}
+
+{% block title %}Dashboard - Banking App{% endblock %}
 
 {% block content %}
-    <h2>Welcome, {{ current_user.username }}</h2>
-    <h3>Your Accounts</h3>
-    <ul>
-        {% for account in accounts %}
-            <li>Account Number: {{ account.account_number }} | Balance: {{ account.balance }}</li>
-        {% endfor %}
+<h1>Dashboard</h1>
+<div class="dashboard-widget">
+    <h2>Account Balance</h2>
+    <p class="balance">$10,000.00</p>
+</div>
+<div class="dashboard-widget">
+    <h2>Recent Transactions</h2>
+    <ul class="transaction-list">
+        <li><span class="transaction-date">2024-11-30</span> Payment - $50.00</li>
+        <li><span class="transaction-date">2024-11-29</span> Deposit - $1000.00</li>
+        <li><span class="transaction-date">2024-11-28</span> Withdrawal - $200.00</li>
     </ul>
-
-    <h3>Your Loans</h3>
-    <ul>
-        {% for loan in loans %}
-            <li>Loan Type: {{ loan.loan_type }} | Amount: {{ loan.amount }} | Status: {{ loan.status }}</li>
-        {% endfor %}
-    </ul>
-
-    <h3>Your Transactions</h3>
-    <ul>
-        {% for transaction in transactions %}
-            <li>Transaction: {{ transaction.details }}</li>
-        {% endfor %}
-    </ul>
+</div>
 {% endblock %}

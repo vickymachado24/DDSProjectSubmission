@@ -3,7 +3,7 @@
 // Add any client-side JavaScript functionality here
 
 // Example: Toggle mobile navigation menu
-const navToggle = document.querySelector('.nav-toggle');
+/*const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
 navToggle.addEventListener('click', () => {
@@ -24,4 +24,8 @@ loanApplicationForm.addEventListener('submit', (event) => {
     alert('Requested amount must be at least $1,000.');
     event.preventDefault();
   }
+}); */
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('Banking app initialized');
 });

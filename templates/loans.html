@@ -1,10 +1,25 @@
-{% extends 'base.html' %}
+
+
+{% extends "home.html" %}
+
+{% block title %}Current Loans - Banking App{% endblock %}
 
 {% block content %}
-    <h2>Your Loans</h2>
-    <ul>
-        {% for loan in loans %}
-            <li>Loan Type: {{ loan.loan_type }} | Amount: {{ loan.amount }} | Status: {{ loan.status }}</li>
-        {% endfor %}
-    </ul>
+<h1>Current Loans</h1>
+<div class="loan-list">
+    <div class="loan-item">
+        <h2>Home Loan</h2>
+        <p class="loan-amount">$200,000</p>
+        <p class="loan-term">20 years remaining</p>
+        <p class="interest-rate">Interest Rate: 3.5%</p>
+        <button class="view-details-btn">View Details</button>
+    </div>
+    <div class="loan-item">
+        <h2>Car Loan</h2>
+        <p class="loan-amount">$15,000</p>
+        <p class="loan-term">3 years remaining</p>
+        <p class="interest-rate">Interest Rate: 4.2%</p>
+        <button class="view-details-btn">View Details</button>
+    </div>
+</div>
 {% endblock %}

@@ -20,3 +20,19 @@ def create_routes(app):
     @app.route('/dashboard')
     def dashboard():
         return "Welcome to the Dashboard!"
+
+    @app.route('/accounts')
+    def accounts():
+        return render_template('accounts.html')
+
+    @app.route('/loan_application')
+    def loan_application():
+        return render_template('loan_application.html')
+
+    @app.route('/loans')
+    def loans():
+        return render_template('loans.html')
+
+    @app.route('/login')
+    def login():
+        return render_template('login.html')

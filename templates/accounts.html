@@ -1,27 +1,21 @@
-{% extends 'base.html' %}
 
-{% block title %}Accounts{% endblock %}
+
+{% extends "home.html" %}
+
+{% block title %}Accounts - Banking App{% endblock %}
 
 {% block content %}
 <h1>Accounts</h1>
-<table>
-    <thead>
-        <tr>
-            <th>Account Number</th>
-            <th>Account Type</th>
-            <th>Balance</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for account in accounts %}
-        <tr>
-            <td>{{ account.account_number }}</td>
-            <td>{{ account.account_type }}</td>
-            <td>{{ account.balance }}</td>
-            <td><a href="{{ url_for('view_account', account_id=account.id) }}">View</a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="account-list">
+    <div class="account-item">
+        <h2>Checking Account</h2>
+        <p class="account-balance">$5,000.00</p>
+        <button class="view-details-btn">View Details</button>
+    </div>
+    <div class="account-item">
+        <h2>Savings Account</h2>
+        <p class="account-balance">$15,000.00</p>
+        <button class="view-details-btn">View Details</button>
+    </div>
+</div>
 {% endblock %}
