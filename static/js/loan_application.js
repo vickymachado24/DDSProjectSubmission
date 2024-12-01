@@ -1,16 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loanForm = document.getElementById('loan-form');
-    
-    if (loanForm) {
-        loanForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const amount = document.getElementById('loan-amount').value;
-            const purpose = document.getElementById('loan-purpose').value;
-            const term = document.getElementById('loan-term').value;
-            
-            // Here you would typically send this data to your backend
-            console.log(`Loan application submitted: $${amount} for ${purpose} over ${term} years`);
-            alert('Loan application submitted successfully!');
-        });
+document.getElementById('loan-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const loanAmount = document.getElementById('loan-amount').value;
+    const loanPurpose = document.getElementById('loan-purpose').value;
+    const loanTerm = document.getElementById('loan-term').value;
+
+    const responseMessage = document.getElementById('response-message');
+
+    // Send the form data to the backend API
+    const response = await fetch('/loan_application', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        loan_amount: loanAmount,
+        loan_purpose: loanPurpose,
+        loan_term: loanTerm,
+    })
+});
+
+
+    const data = await response.json();
+
+    // Display the success or error message
+    if (data.success) {
+        responseMessage.innerHTML = `<p style="color: green;">${data.message}</p>`;
+    } else {
+        responseMessage.innerHTML = `<p style="color: red;">${data.message}</p>`;
     }
 });

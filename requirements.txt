@@ -1,4 +1,5 @@
 flask
-flask-sqlalchemy
-pg8000
 flask_login
+psycopyg
+flask_cors
+postgres

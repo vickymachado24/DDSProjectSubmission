@@ -1,5 +1,3 @@
-
-
 {% extends "home.html" %}
 
 {% block title %}Accounts - Banking App{% endblock %}
@@ -7,26 +5,27 @@
 {% block content %}
 <h1>Accounts</h1>
 <div class="account-list">
-    <div class="account-item" data-account-id="checking">
-        <h2>Checking Account</h2>
-        <p class="account-balance">$5,000.00</p>
-        <button class="view-details-btn" onclick="viewDetails('checking')">View Details</button>
-    </div>
-    <div class="account-item" data-account-id="savings">
-        <h2>Savings Account</h2>
-        <p class="account-balance">$15,000.00</p>
-        <button class="view-details-btn" onclick="viewDetails('savings')">View Details</button>
-    </div>
+    {% for account_type, details in accounts.items() %}
+        <div class="account-item" data-account-id="{{ details.account_id }}" data-account-type="{{ account_type }}" data-balance="{{ details.balance }}">
+            <h2>{{ account_type|capitalize }} Account</h2>
+            <p class="account-balance">${{ details.balance }}</p>
+            <button class="view-details-btn" onclick="viewDetails('{{ account_type }}')">View Details</button>
+        </div>
+    {% endfor %}
 </div>
 
 <div id="account-details" style="display: none;">
     <h2 id="detail-account-type"></h2>
-    <p id="detail-balance"></p>
-    <h3>Transactions</h3>
-    <ul id="transaction-list"></ul>
+    <p id="detail-balance" class="account-balance"></p>
+
+    <h3>Transaction Details</h3>
+    <ul id="transaction-list" class="transaction-list">
+        <!-- Transaction details will be dynamically added here -->
+    </ul>
 </div>
+
 {% endblock %}
 
 {% block extra_js %}
-<script src="../static/js/account.js"></script>  
+<script src="{{ url_for('static', filename='js/account.js') }}"></script>
 {% endblock %}
