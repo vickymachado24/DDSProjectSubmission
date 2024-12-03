@@ -131,11 +131,12 @@ Open a new terminal and connect using psql:
 ```bash
 psql -U postgres -h localhost -p 5432
 ```
-7. **Set Up the Publisher Database and Table **
+7. **Set Up the Publisher Database and Table**
 
-Run the queries inside the below links step by step:
+Run the publisher init sql file content in the publisher connected postgresql:
+https://drive.google.com/file/d/1QEq1J0MINb83uz43XuBgI0X2wlVpPv-b/view?usp=drive_link
 
-8. **Verify Publications **
+8. **Verify Publications**
 
 ```sql
 \dRp
@@ -192,7 +193,8 @@ psql -h localhost -p 5433 -d postgres
 
 14. **Set Up the Subscriber Database and Subscription**
 
-Run the scripts one by one mentioned in the link, in steps:
+Run the scripts for subscriber file content in the subscriber postresql terminal:
+https://drive.google.com/file/d/1rpFqY6zujHVF3AXLMIP2rNrrAQu_B0Xn/view?usp=drive_link
 
 15. **Verify Subscription**
 
