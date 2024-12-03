@@ -93,8 +93,8 @@ Confirm the database exists:
 2. **Initialize the Publisher Database**  
 ```bash
    initdb /path/to/somefolder/pub
-```This creates a data configuration folder for the publisher.
-
+```
+This creates a data configuration folder for the publisher.
 3. **Edit the PostgreSQL Configuration**
 Navigate to the sub folder and open postgresql.conf in a text editor. 
 Modify the following parameters:
